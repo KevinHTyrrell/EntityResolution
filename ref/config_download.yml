@@ -30,3 +30,7 @@ PFR:
   page_timeout: 2
   iterate_list: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   site: 'pfr'
+ESPN_Player:
+  player_url_base: 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes/'
+  raw_dir_base: 'data/PFR/raw'
+  player_dir: 'player_info'
