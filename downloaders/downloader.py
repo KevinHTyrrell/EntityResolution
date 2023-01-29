@@ -16,7 +16,8 @@ class Downloader:
             player_dir: str,
             page_timeout: int,
             iterate_list: Union[list, str],
-            site: str
+            site: str,
+            **kwargs
     ):
         self._iterate_list      = iterate_list
         self._url_base          = url_base
@@ -24,6 +25,7 @@ class Downloader:
         self._raw_player_dir    = os.path.join(self._raw_dir_base, player_dir)
         self._page_timeout      = page_timeout
         self._site              = site
+        self._kwargs            = kwargs
 
     def _get_site_suffix(self, to_download: str):
         if self._site == 'espn':
