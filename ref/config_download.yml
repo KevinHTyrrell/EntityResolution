@@ -3,6 +3,7 @@ ESPN:
   raw_dir_base: 'data/ESPN/raw'
   player_dir: 'player_list'
   page_timeout: 2
+  site: 'espn'
   iterate_list:
     - 'C'
     - 'CB'
@@ -28,3 +29,4 @@ PFR:
   player_dir: 'player_list'
   page_timeout: 2
   iterate_list: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  site: 'pfr'
