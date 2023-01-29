@@ -30,13 +30,13 @@ class ESPNParser(BaseParser):
                 player_name_list = [x.strip() for x in player_name_raw.split(',')[::-1]]
                 player_name = ' '.join(player_name_list)
                 player_link = selected_player['href']
-                player_id = '-'.join(player_link.split('/')[-2:])
+                player_id = player_link.split('/')[-2]
 
                 player_info_dict = {
                     'name_espn': player_name,
                     'id_espn': player_id,
                     'url_espn': player_link
                 }
-                parsed_player_dict[player_id] = player_info_dict
+                parsed_player_dict['-'.join(player_link.split('/')[-2:])] = player_info_dict
             outpath = os.path.join(self._parsed_player_dir, filename)
             write_to_file(parsed_player_dict, filepath=outpath)
