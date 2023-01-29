@@ -1,0 +1,30 @@
+ESPN:
+  url_base: 'http://www.espn.com/nfl/'
+  raw_dir_base: 'data/ESPN/raw'
+  player_dir: 'player_list'
+  page_timeout: 2
+  iterate_list:
+    - 'C'
+    - 'CB'
+    - 'DB'
+    - 'DE'
+    - 'DT'
+    - 'G'
+    - 'K'
+    - 'LB'
+    - 'NT'
+    - 'OG'
+    - 'OT'
+    - 'QB'
+    - 'P'
+    - 'RB'
+    - 'S'
+    - 'T'
+    - 'TE'
+    - 'WR'
+PFR:
+  url_base: 'https://www.pro-football-reference.com/'
+  raw_dir_base: 'data/PFR/raw'
+  player_dir: 'player_list'
+  page_timeout: 2
+  iterate_list: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'

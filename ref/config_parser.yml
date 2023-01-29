@@ -1,0 +1,6 @@
+ESPN:
+  raw_player_dir: 'data/ESPN/raw/player_list'
+  parsed_player_dir: 'data/ESPN/parsed/basic_info/'
+PFR:
+  raw_player_dir: 'data/PFR/raw/player_list'
+  parsed_player_dir: 'data/PFR/parsed/basic_info/'
