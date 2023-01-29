@@ -15,13 +15,21 @@ class Downloader:
             raw_dir_base: str,
             player_dir: str,
             page_timeout: int,
-            iterate_list: Union[list, str]
+            iterate_list: Union[list, str],
+            site: str
     ):
         self._iterate_list      = iterate_list
         self._url_base          = url_base
         self._raw_dir_base      = raw_dir_base
         self._raw_player_dir    = os.path.join(self._raw_dir_base, player_dir)
         self._page_timeout      = page_timeout
+        self._site              = site
+
+    def _get_site_suffix(self, to_download: str):
+        if self._site == 'espn':
+            return f'players?position={to_download.lower()}&league=nfl'
+        else:
+            return f'players/{to_download.upper()}/'
 
     def download_raw_player_page(
             self,
@@ -30,7 +38,8 @@ class Downloader:
             verbose: bool = False
     ):
         filepath = os.path.join(self._raw_player_dir, to_download.upper())
-        url = os.path.join(self._url_base, f'players/{to_download.upper()}/')
+        site_suffix = self._get_site_suffix(to_download)
+        url = os.path.join(self._url_base, site_suffix)
         if verbose:
             print(url)
         page_response = requests.get(url)
@@ -41,7 +50,11 @@ class Downloader:
             warnings.warn(f'WARNING: RECEIVED RESPONSE CODE {response_code}')
         return page_response.status_code
 
-    def download_all_players(self, iterate_list: List[str] = None, verbose: bool = False):
+    def download_all_players(
+            self,
+            iterate_list: List[str] = None,
+            verbose: bool = False
+    ):
         missed = []
         iterate_list = self._iterate_list if iterate_list is None else iterate_list
         for i in iterate_list:
